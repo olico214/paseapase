@@ -15,7 +15,7 @@ export default function NavUSuario({ sesion, paginas }) {
             let isValidUrl = false;
             for (const url of paginas) {
 
-                if (url.url === path || path === "/sistema") {
+                if (url.url === path || path === "/sistema" || path.includes(url.url)) {
                     isValidUrl = true;
                     break;
                 }

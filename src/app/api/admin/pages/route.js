@@ -92,10 +92,6 @@ export async function GET(req) {
     const connection = await pool.getConnection();
 
     try {
-
-
-
-
         const sql = `select * from admin_page`;
         const [rows] = await connection.query(sql, []);
         // console.log(rows)
