@@ -95,7 +95,7 @@ export const fetchDataPeriodo = async () => {
 export const handleSavePeriodo = async (formData) => {
 
 
-    if (formData.nombre && formData.startDate && formData.endDate && formData.proximamente) {
+    if (formData.nombre && formData.startDate && formData.endDate) {
 
         const response = await fetch('/api/periodo', {
             method: 'POST',

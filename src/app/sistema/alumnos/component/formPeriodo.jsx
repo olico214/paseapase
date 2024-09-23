@@ -81,7 +81,7 @@ export default function FormularioPeriodo({ }) {
                   <div>
                     <Input type="date" label="Fecha Fin" name="endDate" value={formData.endDate} onChange={handleChange}></Input>
                   </div>
-                  <div className="col-span-2">
+                  {/* <div className="col-span-2">
                     <Select
                       label="Proximamente"
                       name="proximamente"
@@ -92,7 +92,7 @@ export default function FormularioPeriodo({ }) {
                         SI
                       </SelectItem>
                     </Select>
-                  </div>
+                  </div> */}
                   <div>
                     <Button color="primary" onPress={(async () => {
                       await handleSavePeriodo(formData)
@@ -116,7 +116,7 @@ export default function FormularioPeriodo({ }) {
                         <TableColumn>Nombre Periodo</TableColumn>
                         <TableColumn>Fecha de inicio</TableColumn>
                         <TableColumn>Fecha de Fin</TableColumn>
-                        <TableColumn>Proximamente</TableColumn>
+                        {/* <TableColumn>Proximamente</TableColumn> */}
                         <TableColumn>Accion</TableColumn>
                       </TableHeader>
 
@@ -129,7 +129,7 @@ export default function FormularioPeriodo({ }) {
                                 <TableCell>{item.nombre}</TableCell>
                                 <TableCell>{item.startDate.split("T")[0]}</TableCell>
                                 <TableCell>{item.endDate.split("T")[0]}</TableCell>
-                                <TableCell>{item.proximamente}</TableCell>
+                                {/* <TableCell>{item.proximamente}</TableCell> */}
                                 <TableCell>
                                   <Button color="primary" onPress={(() => {
                                     openData(item)
