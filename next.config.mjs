@@ -2,9 +2,15 @@
 const nextConfig = {
     async redirects() {
         return [
-            // Basic redirect
+
             {
                 source: '/',
+                destination: '/sesion',
+                permanent: true,
+            },
+
+            {
+                source: '/alumnos',
                 destination: '/sesion',
                 permanent: true,
             },

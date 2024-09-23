@@ -4,6 +4,7 @@ import { Input, Button, Image, Switch, Link } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { redirectLogin } from "@/app/libs/cookie";
 import Swal from "sweetalert2";
+import { redirectLoginPadre } from "@/app/libs/cookieAlumos";
 
 export default function InputLogin() {
 
@@ -40,10 +41,14 @@ export default function InputLogin() {
         });
 
         const respuesta = await response.json()
-        console.log(respuesta)
+        // console.log(respuesta)
         if (respuesta.ok) {
 
-            redirectLogin()
+            if (respuesta.sesion == "padre") {
+                redirectLoginPadre(respuesta.id)
+            } else {
+                redirectLogin()
+            }
         } else {
             Swal.fire({
                 title: "Oopss",

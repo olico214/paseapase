@@ -2,6 +2,7 @@ import pool from "@/app/libs/connection";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { setCookie } from "@/app/libs/cookie";
+import { setcookieAlumnos } from "@/app/libs/cookieAlumos";
 
 export async function POST(req) {
     const data = await req.json();
@@ -11,6 +12,17 @@ export async function POST(req) {
     const connection = await pool.getConnection();
     const validatelogin = 1
     try {
+
+
+        const queryLogin = "SELECT id FROM alumnos WHERE fullName = ? and password = ?";
+        const [resultPadres] = await connection.query(queryLogin, [email, password]);
+        // console.log(resultPadres)
+        if (resultPadres.length > 0) {
+            await setcookieAlumnos(resultPadres[0].id)
+            return NextResponse.json({ ok: true, sesion: "padre", id: resultPadres[0].id });
+        }
+
+
         const sql = "SELECT idUser, password FROM users WHERE email = ? and validatePhone = ?";
         const [rows] = await connection.query(sql, [email, validatelogin]);
 
