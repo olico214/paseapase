@@ -8,13 +8,6 @@ const nextConfig = {
                 destination: '/sesion',
                 permanent: true,
             },
-
-            {
-                source: '/alumnos',
-                destination: '/sesion',
-                permanent: true,
-            },
-
         ]
     },
 };

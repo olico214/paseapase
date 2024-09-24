@@ -1,6 +1,6 @@
 export default function Footer({ sesion }) {
     return (
-        <footer className="py-6 text-white bg-violet-500">
+        <footer className="py-6 text-white base fondo letra" >
             <div className="container mx-auto text-center">
                 <p className="mb-4 text-sm">
                     <span className="block sm:inline">All rights reserved.</span>
@@ -19,7 +19,7 @@ export default function Footer({ sesion }) {
                         Privacy Policy
                     </a>
                 </p>
-                <p className="text-sm text-white">
+                <p className="text-sm ">
                     &copy; 2024 {sesion}
                 </p>
             </div>

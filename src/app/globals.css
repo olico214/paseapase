@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.letra{
+    color: rgb(44,45,45);
+}
+
+
+.letraSecondundaria{
+    color: rgb(209,233,255);
+}
+.fondo{
+    background-color: rgb(209,233,255);
+}
+
+
+.fondooscuro{
+    background-color: rgb(44,45,45);;
+}
+

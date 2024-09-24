@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
           <header>
             <ControllerNavbar name={name} sesion={sesion} />
           </header>
-          <main className="flex-grow bg-gray-100">
+          <main className="flex-grow">
             {children}
           </main>
           <footer>

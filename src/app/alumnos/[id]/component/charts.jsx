@@ -67,8 +67,8 @@ export default function ChartComponent({ data }) {
                 datasets: [{
                     data: formData.futbolisticos,
                     label: "Conceptos futbolísticos",
-                    borderColor: 'rgba(255, 99, 132, 0.2)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 0.4)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.4)',
                     fill: true,
                 }]
             },
@@ -110,8 +110,8 @@ export default function ChartComponent({ data }) {
                 datasets: [{
                     data: personalesData.personales,
                     label: "Conceptos personales",
-                    borderColor: 'rgba(255, 99, 132, 0.2)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(0, 0, 255, 0.4)',
+                    backgroundColor: 'rgba(0, 0, 255, 0.4)',
                     fill: true,
                 }]
             },
@@ -139,9 +139,17 @@ export default function ChartComponent({ data }) {
 
     return (
         <div>
+            <div className='grid grid-cols-1 gap-5 mb-5 lg:grid-cols-5 md:grid-cols-1'>
+                {data.map((item, index) => (
+                    <Button color='primary' key={index} onPress={() => handleAccordionClick(item)}>
+                        {item.periodo}
+                    </Button>
+                ))}
+            </div>
             <div className='grid grid-cols-1 gap-5 lg:grid-cols-2 md:grid-cols-1'>
-                <div className='col-span-1 lg:col-span-2'>
-                    {periodo}
+
+                <div className='flex content-center justify-center w-full max-w-2xl col-span-1 p-6 bg-white rounded-lg shadow-lg'>
+                    <h4>{periodo}</h4>
                 </div>
                 <div>
                     <canvas id='grafico1'></canvas>
@@ -150,13 +158,7 @@ export default function ChartComponent({ data }) {
                     <canvas id='grafico2'></canvas>
                 </div>
             </div>
-            <div className='grid grid-cols-1 gap-5 lg:grid-cols-5 md:grid-cols-1'>
-                {data.map((item, index) => (
-                    <Button key={index} onPress={() => handleAccordionClick(item)}>
-                        {item.periodo}
-                    </Button>
-                ))}
-            </div>
+
 
         </div>
     );

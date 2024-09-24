@@ -35,7 +35,7 @@ export default function NavUSuario({ sesion, paginas }) {
         deleteCookie()
     }
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-violet-200">
+        <Navbar onMenuOpenChange={setIsMenuOpen} className="fondo ">
             <NavbarContent>
                 {/* <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -69,7 +69,7 @@ export default function NavUSuario({ sesion, paginas }) {
             <NavbarContent justify="end">
 
                 <NavbarItem>
-                    <Button onPress={handleDeleteSession} color="primary" href="#" variant="flat">
+                    <Button onPress={handleDeleteSession} color="danger" href="#" >
                         Cerrar Sesion
                     </Button>
                 </NavbarItem>

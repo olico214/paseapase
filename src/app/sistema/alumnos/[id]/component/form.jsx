@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 import { fetchData, handleSave } from "./scripts";
 
 export default function FormularioExpedienteComponent({ id }) {
@@ -15,6 +15,7 @@ export default function FormularioExpedienteComponent({ id }) {
         parent: '',
         parentEmergency: '',
         parentWhatsapp: '',
+        comentary: '',
         id: id
     });
 
@@ -41,6 +42,7 @@ export default function FormularioExpedienteComponent({ id }) {
                 parent: data.parent,
                 parentEmergency: data.parent_emergency,
                 parentWhatsapp: data.parent_Whatsapp,
+                comentary: data.comentary,
                 id: id
             }));
         }
@@ -57,9 +59,9 @@ export default function FormularioExpedienteComponent({ id }) {
         }));
     };
     return (
-        <>
+        <div className="p-5 mt-5 mb-5 bg-white shadow-md panel">
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 ">
                 <div className="col-span-4">
                     <span><h4>Datos Personales</h4></span>
                 </div>
@@ -74,7 +76,7 @@ export default function FormularioExpedienteComponent({ id }) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 ">
                 <div className="col-span-4">
                     <span><h4>Contacto de Emergencia</h4></span>
                 </div>
@@ -100,6 +102,9 @@ export default function FormularioExpedienteComponent({ id }) {
                 <div className="col-span-2">
                     <Input type="number" label="Whatsapp" name="parentEmergency" variant="bordered" value={formData.parentEmergency} onChange={handleChange}></Input>
                 </div>
+                <div className="col-span-4">
+                    <Textarea label="Fortalezas" variant="bordered" name="comentary" value={formData.comentary} onChange={handleChange}></Textarea>
+                </div>
             </div>
 
             <Button color="primary" className="mt-5 max-w-7" onPress={(async () => {
@@ -109,7 +114,7 @@ export default function FormularioExpedienteComponent({ id }) {
                 Guardar
             </Button>
 
-        </>
+        </div>
 
 
     );

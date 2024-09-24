@@ -41,11 +41,13 @@ export default function InputLogin() {
         });
 
         const respuesta = await response.json()
-        // console.log(respuesta)
+        console.log(respuesta)
         if (respuesta.ok) {
 
             if (respuesta.sesion == "padre") {
-                redirectLoginPadre(respuesta.id)
+                redirectLoginPadre()
+                // route.push('/alumnos')
+
             } else {
                 redirectLogin()
             }
@@ -61,7 +63,7 @@ export default function InputLogin() {
     }
     return (
 
-        <div className="grid grid-cols-2 gap-2 p-5 text-black">
+        <div className="grid grid-cols-1 gap-2 p-5 text-black md:grid-cols-1 lg:grid-cols-2">
             <div className="grid items-center content-center justify-center gap-4 mx-auto">
                 <div>
                     <Input type="email" variant='bordered' label="Email" name="email" value={formData.email} onChange={handleChange} />
@@ -78,7 +80,7 @@ export default function InputLogin() {
                     </Link>
                 </div>
             </div>
-            <div>
+            <div className="hidden lg:block md:hidden">
                 <Image
                     isBlurred
                     width={400}

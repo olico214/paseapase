@@ -1,9 +1,11 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem } from "@nextui-org/react";
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
 import { handleSave } from "./scripts";
+import { usePathname } from "next/navigation";
 
 export default function FormularioAlumno({ boton, refreshData, data }) {
+  const path = usePathname()
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [formData, setFormData] = useState({
@@ -96,6 +98,7 @@ export default function FormularioAlumno({ boton, refreshData, data }) {
                   <div className="col-span-2">
                     <Input type="number" label="Whatsapp" name="parentEmergency" value={formData.parentEmergency} onChange={handleChange}></Input>
                   </div>
+
                 </div>
 
 

@@ -6,6 +6,7 @@ import ResultComponent from "./component/results";
 import ComentaryComponent from "./component/comentary";
 import SiguientesResultadosComponent from "./component/nextResults";
 import ChartComponent from "./component/charts";
+import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/react";
 
 
 export default function BoletaPage({ params }) {
@@ -28,7 +29,12 @@ export default function BoletaPage({ params }) {
     return (
         <div className="grid justify-center gap-5 p-5 mx-auto">
 
-            <div className="lg:flex gap-10 max-h-[300px] md:grid overflow-auto">
+            <Breadcrumbs>
+                <BreadcrumbItem href="/alumnos">Inicio</BreadcrumbItem>
+                <BreadcrumbItem>Calificaciones</BreadcrumbItem>
+            </Breadcrumbs>
+
+            <div className="gap-10 lg:flex md:grid ">
                 <div>
                     <ImageUserComponent data={alumno} />
                 </div>
@@ -37,11 +43,11 @@ export default function BoletaPage({ params }) {
                 </div>
             </div>
             <div className="gap-10 max-h-[300px] md:grid w-full">
-                <ComentaryComponent />
+                <ComentaryComponent data={alumno} />
             </div>
 
 
-            <div className="w-full gap-10  md:grid">
+            <div className="w-full gap-10 md:grid">
                 <div>
                     <ChartComponent data={results} />
                 </div>

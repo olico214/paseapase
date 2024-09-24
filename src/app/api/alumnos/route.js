@@ -35,7 +35,7 @@ export async function GET(req) {
 
 export async function POST(req) {
     const data = await req.json()
-    const { fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp, id } = data
+    const { fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp, comentary, id } = data
     const userData = await getID()
 
     if (!userData) {
@@ -46,12 +46,12 @@ export async function POST(req) {
 
     try {
         if (id > 0) {
-            const sql = `update alumnos set fullName=?, birthDate=?, alta_date=?, parent_name=?, parent=?, parent_emergency=?, parent_Whatsapp=? where id =?`;
-            const [rows] = await connection.query(sql, [fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp, id]);
+            const sql = `update alumnos set fullName=?, birthDate=?, alta_date=?, parent_name=?, parent=?, parent_emergency=?, parent_Whatsapp=?,comentary=? where id =?`;
+            const [rows] = await connection.query(sql, [fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp, comentary, id]);
         } else {
 
-            const sql = `INSERT INTO alumnos (idCompany, fullName, birthDate, alta_date, parent_name, parent, parent_emergency, parent_Whatsapp) values(?,?,?,?,?,?,?,?)`;
-            const [rows] = await connection.query(sql, [company_key, fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp]);
+            const sql = `INSERT INTO alumnos (idCompany, fullName, birthDate, alta_date, parent_name, parent, parent_emergency, parent_Whatsapp,comentary) values(?,?,?,?,?,?,?,?,?)`;
+            const [rows] = await connection.query(sql, [company_key, fullName, birthDate, registerDate, parent_Name, parent, parentEmergency, parentWhatsapp, comentary]);
             const id = rows.insertId
             await generatePassword(id)
         }

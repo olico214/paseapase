@@ -11,10 +11,7 @@ export default function UserHome() {
     return (
         <>
             <div
-                className="relative flex items-center justify-center w-full h-screen bg-no-repeat bg-cover"
-                style={{
-                    backgroundImage: "url('/back.png')",
-                }}
+                className="relative flex items-center justify-center w-full h-screen bg-no-repeat bg-cover fondooscuro"
             >
 
                 <div className="relative px-16 py-10 bg-gray-100 shadow-lg rounded-xl backdrop-blur-md max-sm:px-8 ">

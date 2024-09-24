@@ -4,18 +4,15 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 import { deleteCookie } from "@/app/libs/cookie";
 import { usePathname, useRouter } from "next/navigation";
 
-import { redirectLoginPadre } from "@/app/libs/cookieAlumos";
-
-
 
 export default function NavUSuario({ sesion, user }) {
     const path = usePathname()
     const router = useRouter()
-
-    if (!path.includes(user)) {
+    // console.log(user)
+    if (!path.includes(user) || path === 'alumnos') {
         try {
 
-            router.push('/alumnos/' + user)
+            router.push('/alumnos')
         } catch {
 
         }
@@ -24,7 +21,7 @@ export default function NavUSuario({ sesion, user }) {
         deleteCookie()
     }
     return (
-        <Navbar className="bg-violet-200">
+        <Navbar className="fondo letra">
             <NavbarContent>
                 <NavbarBrand>
                     <p className="font-bold text-inherit">{sesion}</p>
@@ -36,12 +33,12 @@ export default function NavUSuario({ sesion, user }) {
             <NavbarContent justify="end">
 
                 <NavbarItem>
-                    <Button onPress={handleDeleteSession} color="primary" href="#" variant="flat">
+                    <Button onPress={handleDeleteSession} color="danger" href="#" >
                         Cerrar Sesion
                     </Button>
                 </NavbarItem>
             </NavbarContent>
 
-        </Navbar>
+        </Navbar >
     );
 }

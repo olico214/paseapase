@@ -17,14 +17,11 @@ export async function getNameSessionAlumno() {
     try {
         const cookie = cookies()
         const galleta = cookie.get('user')
+        // console.log(galleta)
         return galleta.value
-        // const validation = await validateuser(galleta.value)
-        // if (validation) {
-        //     return validation
-        // } else {
-        //     return false
-        // }
+
     } catch {
+        return false
     }
 
 }
@@ -90,6 +87,6 @@ export const getID = async () => {
 
 
 
-export const redirectLoginPadre = (id) => {
-    return redirect('/alumnos/' + id)
+export const redirectLoginPadre = () => {
+    return redirect('/alumnos')
 }
