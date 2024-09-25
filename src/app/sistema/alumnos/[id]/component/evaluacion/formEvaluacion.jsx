@@ -2,6 +2,7 @@
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem } from "@nextui-org/react";
 import { useState } from "react";
 import { handlePeriodo, saveCalificacion } from "./scripts";
+import Swal from "sweetalert2";
 
 export default function FormEvaluation({ id, data, asynFetchData }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -122,14 +123,48 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
                                     Close
                                 </Button>
                                 <Button color="primary" onPress={(async () => {
-                                    const response = await fetch('/api/expediente/' + id, {
-                                        method: 'POST',
-                                        headers: {
-                                            'Content-Type': 'application/json',
-                                        },
-                                        body: JSON.stringify(formData),
-                                    });
-                                    await asynFetchData()
+
+                                    if (formData.trabajo_en_equipo && formData.esfuerzo && formData.companerismo && formData.actitud && formData.conduccion && formData.recepcion && formData.pase && formData.desplazamiento && formData.tiro && formData.periodo) {
+                                        const response = await fetch('/api/expediente/' + id, {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: JSON.stringify(formData),
+                                        });
+                                        await asynFetchData()
+                                        const toast = Swal.mixin({
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            padding: '2em',
+                                            customClass: 'sweet-alerts',
+                                        });
+                                        toast.fire({
+                                            icon: 'success',
+                                            title: 'Registro Exitoso',
+                                            padding: '2em',
+                                            customClass: 'sweet-alerts',
+                                        });
+                                    } else {
+                                        const toast = Swal.mixin({
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 3000,
+                                            padding: '2em',
+                                            customClass: 'sweet-alerts',
+                                        });
+                                        toast.fire({
+                                            icon: 'error',
+                                            title: 'Capture todos los campos',
+                                            padding: '2em',
+                                            customClass: 'sweet-alerts',
+                                        });
+                                    }
+
+
                                 })}>
                                     Guardar
                                 </Button>

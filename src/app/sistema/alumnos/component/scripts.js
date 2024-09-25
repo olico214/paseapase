@@ -5,7 +5,15 @@ import Swal from "sweetalert2";
  * 
  * @returns {object}
  */
-export const fetchData = async () => {
+export const fetchData = async (id) => {
+    const response = await fetch('/api/alumnos/' + id)
+    const data = await response.json()
+    return data.data
+}
+
+
+
+export const fetchAllalumnos = async () => {
     const response = await fetch('/api/alumnos')
     const data = await response.json()
     return data.data

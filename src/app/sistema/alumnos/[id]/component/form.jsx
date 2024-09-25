@@ -1,11 +1,11 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
-import { fetchData, handleSave } from "./scripts";
+import { Button, Input, Select, SelectItem, Textarea } from "@nextui-org/react";
+import { handleSave } from "./scripts";
 
-export default function FormularioExpedienteComponent({ id }) {
+export default function FormularioExpedienteComponent({ id, data }) {
 
-    const [data, setData] = useState()
+
 
     const [formData, setFormData] = useState({
         fullName: '',
@@ -23,16 +23,12 @@ export default function FormularioExpedienteComponent({ id }) {
 
 
     useEffect(() => {
-        asyncFetchData()
-    }, []);
-
-    const asyncFetchData = async () => {
-        const reponse = await fetchData(id)
-        const data = reponse[0]
-        if (data) {
+        // console.log(data.length)
+        if (data.birthDate) {
+            // console.log(data)
             const fecha1 = data.birthDate
             const fecha2 = data.alta_date
-            console.log(data)
+
             setFormData(prevState => ({
                 ...prevState,
                 fullName: data.fullName,
@@ -46,7 +42,9 @@ export default function FormularioExpedienteComponent({ id }) {
                 id: id
             }));
         }
-    }
+    }, [data]);
+
+
 
 
 

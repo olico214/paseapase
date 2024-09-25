@@ -148,7 +148,7 @@ export default function ChartComponent({ data }) {
             </div>
             <div className='grid grid-cols-1 gap-5 lg:grid-cols-2 md:grid-cols-1'>
 
-                <div className='flex content-center justify-center w-full max-w-2xl col-span-1 p-6 bg-white rounded-lg shadow-lg'>
+                <div className='flex content-center justify-center w-full max-w-2xl p-6 bg-white rounded-lg shadow-lg lg:col-span-2 md:col-span-1'>
                     <h4>{periodo}</h4>
                 </div>
                 <div>

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import FormularioAlumno from "./component/form"
 import TableAlumno from "./component/table"
-import { fetchData } from "./component/scripts";
+import { fetchAllalumnos, fetchData } from "./component/scripts";
 import FormularioPeriodo from "./component/formPeriodo";
 
 export default function BoletaPage() {
@@ -14,7 +14,7 @@ export default function BoletaPage() {
     }, []);
 
     const asycnfetchData = async () => {
-        const response = await fetchData()
+        const response = await fetchAllalumnos()
         setData(response)
     }
 

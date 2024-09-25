@@ -2,9 +2,12 @@ import React from 'react';
 
 export default function FormUserComponent({ data }) {
     const formDate = (date) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const formatter = new Intl.DateTimeFormat('es-MX', options);
-        return formatter.format(new Date(date));
+        // console.log(date)
+        if (date) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formatter = new Intl.DateTimeFormat('es-MX', options);
+            return formatter.format(new Date(date));
+        }
     };
 
     if (!data) {

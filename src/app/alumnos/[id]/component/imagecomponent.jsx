@@ -1,16 +1,26 @@
 "use client"
 import { Image } from "@nextui-org/react";
+import { useEffect, useState } from "react";
 
-export default function ImageUserComponent() {
+export default function ImageUserComponent({ data }) {
+    const [image, setImage] = useState("https://images.paseapase.com/assets/66f44322e2cfe.png")
+    const [nombre, setNombre] = useState("IMAGEN VACIA")
+
+    useEffect(() => {
+        if (data.url) {
+            setImage(data.url)
+            setNombre(data.fullName)
+
+        }
+    }, [data]);
 
     return (
         <div className="flex content-center justify-center mx-auto">
             <Image
-                width={300}
-                height={200}
-                src="https://via.placeholder.com/300x200"
-                fallbackSrc="https://via.placeholder.com/300x200"
-                alt="NextUI Image with fallback"
+                width={400}
+                height={300}
+                src={image}
+                alt={nombre}
             />
         </div>
     )
