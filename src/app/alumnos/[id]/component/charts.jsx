@@ -73,10 +73,17 @@ export default function ChartComponent({ data }) {
                 }]
             },
             options: {
-                scale: {
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0
+                scales: {
+                    r: {
+                        ticks: {
+                            stepSize: 1,
+                            beginAtZero: true,
+                            min: 0,
+                            max: 5,
+                        },
+                        grid: {
+                            color: 'rgba(255, 99, 132, 0.4)'
+                        }
                     }
                 },
                 elements: {
@@ -93,6 +100,9 @@ export default function ChartComponent({ data }) {
             }
         };
     }, [formData]);
+
+
+
 
     useEffect(() => {
         const ctx2 = document.getElementById('grafico2').getContext('2d');
@@ -116,10 +126,17 @@ export default function ChartComponent({ data }) {
                 }]
             },
             options: {
-                scale: {
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0
+                scales: {
+                    r: {
+                        ticks: {
+                            stepSize: 1,
+                            beginAtZero: true,
+                            min: 0,
+                            max: 5,
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 255, 0.4)'
+                        }
                     }
                 },
                 elements: {

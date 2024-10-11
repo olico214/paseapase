@@ -47,8 +47,6 @@ export default function TableAlumno({ data, refreshData }) {
             <Table aria-label="Example static collection table">
                 <TableHeader>
                     <TableColumn>Nombre Alumno</TableColumn>
-                    <TableColumn>conceptos futbolísticos</TableColumn>
-                    <TableColumn>conceptos personales</TableColumn>
                     <TableColumn>Contraseña</TableColumn>
                     <TableColumn>Expediente</TableColumn>
                 </TableHeader>
@@ -60,8 +58,6 @@ export default function TableAlumno({ data, refreshData }) {
                                 <TableRow key={item.id}>
 
                                     <TableCell>{item.fullName}</TableCell>
-                                    <TableCell>0</TableCell>
-                                    <TableCell>0</TableCell>
                                     <TableCell>{item.password}</TableCell>
                                     <TableCell>
                                         <div className="flex gap-2">
