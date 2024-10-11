@@ -76,7 +76,7 @@ export default function ChartComponent({ data }) {
                 scales: {
                     r: {
                         ticks: {
-                            stepSize: 1,
+                            stepSize: 5,
                             beginAtZero: true,
                             min: 0,
                             max: 5,
@@ -129,7 +129,7 @@ export default function ChartComponent({ data }) {
                 scales: {
                     r: {
                         ticks: {
-                            stepSize: 1,
+                            stepSize: 5,
                             beginAtZero: true,
                             min: 0,
                             max: 5,
