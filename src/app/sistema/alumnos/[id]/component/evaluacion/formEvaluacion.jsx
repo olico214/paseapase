@@ -54,6 +54,22 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
 
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="col-span-3">
+                                        <Select
+                                            label="Selecciona un periodo"
+                                            className="max-w-xs"
+                                            name="periodo"
+                                            selectedKeys={[formData.periodo]}
+                                            onChange={handleChange}
+                                        >
+                                            {periodo.map((item) => (
+                                                <SelectItem key={item.nombre}>
+                                                    {item.nombre}
+                                                </SelectItem>
+                                            ))}
+
+                                        </Select>
+                                    </div>
+                                    <div className="col-span-3">
                                         <h4>conceptos personales</h4>
                                     </div>
                                     <div>
@@ -76,22 +92,7 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
                                 </div>
 
                                 <div className="grid grid-cols-3 gap-4">
-                                    <div className="col-span-3">
-                                        <Select
-                                            label="Selecciona un periodo"
-                                            className="max-w-xs"
-                                            name="periodo"
-                                            selectedKeys={[formData.periodo]}
-                                            onChange={handleChange}
-                                        >
-                                            {periodo.map((item) => (
-                                                <SelectItem key={item.nombre}>
-                                                    {item.nombre}
-                                                </SelectItem>
-                                            ))}
 
-                                        </Select>
-                                    </div>
                                     <div className="col-span-3">
                                         <h4>conceptos futbolísticos</h4>
                                     </div>
