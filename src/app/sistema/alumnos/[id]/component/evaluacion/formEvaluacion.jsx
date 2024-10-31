@@ -50,6 +50,31 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
                         <>
                             <ModalHeader className="flex flex-col gap-1">Areas</ModalHeader>
                             <ModalBody>
+
+
+                                <div className="grid grid-cols-3 gap-4">
+                                    <div className="col-span-3">
+                                        <h4>conceptos personales</h4>
+                                    </div>
+                                    <div>
+                                        <Input type="number" label="Conducción" name="conduccion" value={formData.conduccion} onChange={handleChange} />
+                                    </div>
+                                    <div>
+                                        <Input type="number" label="Recepción" name="recepcion" value={formData.recepcion} onChange={handleChange} />
+                                    </div>
+                                    <div>
+                                        <Input type="number" label="Pase" name="pase" value={formData.pase} onChange={handleChange} />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <Input type="number" label="Desplazamiento" name="desplazamiento" value={formData.desplazamiento} onChange={handleChange} />
+                                    </div>
+                                    <div>
+                                        <Input type="number" label="Tiro" name="tiro" value={formData.tiro} onChange={handleChange} />
+                                    </div>
+                                </div>
+
                                 <div className="grid grid-cols-3 gap-4">
                                     <div className="col-span-3">
                                         <Select
@@ -95,28 +120,6 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
 
 
 
-                                <div className="grid grid-cols-3 gap-4">
-                                    <div className="col-span-3">
-                                        <h4>conceptos personales</h4>
-                                    </div>
-                                    <div>
-                                        <Input type="number" label="Conducción" name="conduccion" value={formData.conduccion} onChange={handleChange} />
-                                    </div>
-                                    <div>
-                                        <Input type="number" label="Recepción" name="recepcion" value={formData.recepcion} onChange={handleChange} />
-                                    </div>
-                                    <div>
-                                        <Input type="number" label="Pase" name="pase" value={formData.pase} onChange={handleChange} />
-                                    </div>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div>
-                                        <Input type="number" label="Desplazamiento" name="desplazamiento" value={formData.desplazamiento} onChange={handleChange} />
-                                    </div>
-                                    <div>
-                                        <Input type="number" label="Tiro" name="tiro" value={formData.tiro} onChange={handleChange} />
-                                    </div>
-                                </div>
                             </ModalBody>
                             <ModalFooter>
                                 <Button color="danger" variant="light" onPress={onClose}>
