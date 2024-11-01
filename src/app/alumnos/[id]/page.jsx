@@ -52,9 +52,9 @@ export default function BoletaPage({ params }) {
                     <ChartComponent data={results} />
                 </div>
             </div>
-            <div className="gap-10 max-h-[300px] md:grid w-full max-w-[720px] mx-auto">
+            {/* <div className="gap-10 max-h-[300px] md:grid w-full max-w-[720px] mx-auto">
                 <SiguientesResultadosComponent data={periodo} />
-            </div>
+            </div> */}
 
         </div>
     )
