@@ -70,7 +70,7 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
                                         </Select>
                                     </div>
                                     <div className="col-span-3">
-                                        <h4>conceptos futbolísticos</h4>
+                                        <h4>conceptos personales</h4>
                                     </div>
                                     <div>
                                         <Input type="number" label="Conducción" name="conduccion" value={formData.conduccion} onChange={handleChange} />
@@ -94,7 +94,7 @@ export default function FormEvaluation({ id, data, asynFetchData }) {
                                 <div className="grid grid-cols-3 gap-4">
 
                                     <div className="col-span-3">
-                                        <h4>conceptos personales</h4>
+                                        <h4>conceptos futbolísticos</h4>
                                     </div>
                                     <div>
                                         <Input type="number" label="Trabajo en Equipo" name="trabajo_en_equipo" value={formData.trabajo_en_equipo} onChange={handleChange} />

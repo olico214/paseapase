@@ -66,7 +66,7 @@ export default function ChartComponent({ data }) {
                 labels: formData.labels,
                 datasets: [{
                     data: formData.futbolisticos,
-                    label: "Conceptos futbolísticos",
+                    label: "Conceptos personales",
                     borderColor: 'rgba(255, 99, 132, 0.4)',
                     backgroundColor: 'rgba(255, 99, 132, 0.4)',
                     fill: true,
@@ -119,7 +119,7 @@ export default function ChartComponent({ data }) {
                 labels: personalesData.labels,
                 datasets: [{
                     data: personalesData.personales,
-                    label: "Conceptos personales",
+                    label: "Conceptos futbolísticos",
                     borderColor: 'rgba(0, 0, 255, 0.4)',
                     backgroundColor: 'rgba(0, 0, 255, 0.4)',
                     fill: true,
