@@ -193,3 +193,74 @@ export const handleDeletePeriodo = async (id) => {
 }
 
 
+
+
+
+
+
+export const handleSaveRecordatorio = async (fecha, comentario) => {
+
+
+    if (fecha && comentario) {
+        const formData = {
+            fecha: fecha,
+            comentario: comentario
+        }
+        const response = await fetch('/api/recordatorio', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            const toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                padding: '2em',
+                customClass: 'sweet-alerts',
+            });
+            toast.fire({
+                icon: 'success',
+                title: 'Exito al guardar los datos',
+                padding: '2em',
+                customClass: 'sweet-alerts',
+            });
+            return true
+        }
+    } else {
+        const toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+        toast.fire({
+            icon: 'error',
+            title: 'Debe llenar todos los campos',
+            padding: '2em',
+            customClass: 'sweet-alerts',
+        });
+        return false
+    }
+}
+
+
+
+
+
+
+
+export const handlefetchRecordatorio = async () => {
+
+
+
+    const response = await fetch('/api/recordatorio');
+    const data = await response.json()
+    return data.data
+}

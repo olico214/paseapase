@@ -11,8 +11,8 @@ export default function SiguientesResultadosComponent({ data }) {
         <>
 
             <div className="w-full ">
-                <div className="w-full p-6 bg-white rounded-lg shadow-lg">
-                    siguiente periodo: {data.length > 0 ? formDate(data[0].startDate) : "Proximanente"}
+                <div className="w-full p-6 bg-white rounded-lg shadow-lg justify-center content-start items-center text-center">
+                    siguiente periodo: {data.length > 0 ? formDate(data[0].fecha) : "Proximanente"}
                 </div>
             </div>
         </>

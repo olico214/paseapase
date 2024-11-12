@@ -5,6 +5,7 @@ import FormularioAlumno from "./component/form"
 import TableAlumno from "./component/table"
 import { fetchAllalumnos, fetchData } from "./component/scripts";
 import FormularioPeriodo from "./component/formPeriodo";
+import RecordatorioPage from "./component/recordatorio";
 
 export default function BoletaPage() {
     const [data, setData] = useState([]);
@@ -24,6 +25,7 @@ export default function BoletaPage() {
                 <div className="flex gap-5">
                     <FormularioAlumno boton={"Nuevo Registro"} refreshData={asycnfetchData} />
                     <FormularioPeriodo />
+                    <RecordatorioPage/>
                 </div>
                 <div>
                     <TableAlumno data={data} refreshData={asycnfetchData} />

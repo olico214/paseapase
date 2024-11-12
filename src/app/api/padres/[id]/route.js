@@ -21,10 +21,16 @@ export async function GET(req, { params }) {
         const periodo = `select * from periodo order by id desc limit 1  `;
         const [resultsPeriodo] = await connection.query(periodo, []);
 
+
+        const recordatorio = `select * from recordatorio where status = ?  `;
+        const [resultsrecordatorio] = await connection.query(recordatorio, [1]);
+        console.log(resultsrecordatorio)
         const data = {
             alumno: rows[0],
             evaluacion: results[0] ? results : [],
-            next_periodo: resultsPeriodo ? resultsPeriodo : []
+            next_periodo: resultsPeriodo ? resultsPeriodo : [],
+            next_ecordatorio: resultsrecordatorio ? resultsrecordatorio : []
+
         }
 
         // console.log(results)

@@ -23,7 +23,7 @@ export default function BoletaPage({ params }) {
         const data = await response.json()
         setAlumno(data.data.alumno)
         setResults(data.data.evaluacion)
-        setPeriodo(data.data.next_periodo)
+        setPeriodo(data.data.next_ecordatorio)
     }
 
     return (
@@ -52,9 +52,9 @@ export default function BoletaPage({ params }) {
                     <ChartComponent data={results} />
                 </div>
             </div>
-            {/* <div className="gap-10 max-h-[300px] md:grid w-full max-w-[720px] mx-auto">
+            <div className="gap-10 max-h-[300px] md:grid w-full max-w-[720px] mx-auto">
                 <SiguientesResultadosComponent data={periodo} />
-            </div> */}
+            </div>
 
         </div>
     )
