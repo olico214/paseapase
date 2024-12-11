@@ -41,11 +41,10 @@ export async function POST(req) {
     }
     const { company_key } = userData
     const connection = await pool.getConnection();
-
     try {
         if (id > 0) {
-            const sql = `update periodo set nombre=?, startDate=?, endDate=?, proximamente=?, where id =?`;
-            const [rows] = await connection.query(sql, [nombre, startDate, endDate, proximamente, id]);
+            const sql = `update periodo set nombre=?, startDate=?, endDate=? where id =?`;
+            const [rows] = await connection.query(sql, [nombre, startDate, endDate, id]);
         } else {
 
             const sql = `INSERT INTO periodo (idCompany, nombre, startDate, endDate, proximamente) values(?,?,?,?,?)`;
