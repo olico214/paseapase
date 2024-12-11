@@ -61,7 +61,7 @@ export default function FormularioExpedienteComponent({ id, data }) {
 
             <div className="grid grid-cols-4 gap-4 ">
                 <div className="col-span-4">
-                    <span><h4>Contacto de Emergencia</h4></span>
+                    <span><h4>Datos Personales</h4></span>
                 </div>
                 <div className="col-span-2">
                     <Input type="text" label="Nombre  Alumno" variant="bordered" name="fullName" value={formData.fullName} onChange={handleChange} ></Input>
@@ -76,7 +76,7 @@ export default function FormularioExpedienteComponent({ id, data }) {
 
             <div className="grid grid-cols-4 gap-4 ">
                 <div className="col-span-4">
-                    <span><h4>Datos Personales</h4></span>
+                    <span><h4>Contacto de Emergencia</h4></span>
                 </div>
                 <div className="col-span-2">
                     <Input type="text" label="Nombre" variant="bordered" name="parent_Name" value={formData.parent_Name} onChange={handleChange}></Input>
