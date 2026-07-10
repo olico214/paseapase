@@ -8,7 +8,6 @@ export async function POST(req) {
     const data = await req.json();
     const { email, password } = data;
 
-
     const connection = await pool.getConnection();
     const validatelogin = 1
     try {
@@ -25,7 +24,6 @@ export async function POST(req) {
 
         const sql = "SELECT idUser, password FROM users WHERE email = ? and validatePhone = ?";
         const [rows] = await connection.query(sql, [email, validatelogin]);
-
         if (rows.length > 0) {
             const user = rows[0];
             const passwordMatch = await bcrypt.compare(password, user.password);

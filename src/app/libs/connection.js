@@ -1,13 +1,16 @@
 import mysql from "mysql2/promise";
-
+const host = process.env.HOST
+const user = process.env.USER
+const database = process.env.DATABASE
+const password = process.env.PASSWORD
 
 let pool;
 try {
     pool = mysql.createPool({
-        host: '151.106.97.51',
-        user: 'u835880732_sportsCRM',
-        database: 'u835880732_sportsCRM',
-        password: 'xP0*G4A@6',
+        host: host,
+        user: user,
+        database: database,
+        password: password,
     });
 } catch (err) {
     console.error(err);

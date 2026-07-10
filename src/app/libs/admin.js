@@ -56,6 +56,22 @@ export async function getallPages() {
 }
 
 
+export async function getNavigation() {
+    try {
+        const cookie = cookies()
+        const session = cookie.get('user')
+        if (!session) return []
+
+        const connection = await pool.getConnection()
+        const sql = "SELECT t1.url FROM admin_navigation t0 LEFT JOIN admin_page t1 ON t0.idPage = t1.id WHERE idUser = ?"
+        const [rows] = await connection.query(sql, [session.value])
+        connection.release()
+        return rows
+    } catch {
+        return []
+    }
+}
+
 export const redirectSistema = () => {
     return redirect('/sistema')
 }

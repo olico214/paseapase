@@ -1,14 +1,16 @@
-
 import { redirect } from 'next/navigation'
-import { getNameSession } from "@/app/libs/cookie";
-import NavUSuario from "./component/navegacion";
-import { middleware } from '../../../middleware';
+import { getNameSession } from "@/app/libs/cookie"
+import { getNavigation } from "@/app/libs/admin"
+import NavUSuario from "./component/navegacion"
+
+export const dynamic = 'force-dynamic'
+
 const sesion = process.env.SISTEMNAME
 
 export const metadata = {
-  title: "Alumnos y Expedientes",
-  description: "Pagina de alumnos y expediente",
-};
+  title: "Panel de control",
+  description: "Sistema de gestión deportiva",
+}
 
 export default async function Layout({ children }) {
   const name = await getNameSession()
@@ -17,11 +19,11 @@ export default async function Layout({ children }) {
     return redirect('/')
   }
 
-  const paginas = await middleware()
+  const paginas = await getNavigation()
   return (
-    <section>
-      <NavUSuario sesion={sesion} paginas={paginas} />
-      {children}
+    <section className="min-h-screen bg-slate-50">
+      <NavUSuario sesion={sesion} paginas={paginas} userName={name} />
+      <main>{children}</main>
     </section>
-  );
+  )
 }

@@ -4,6 +4,8 @@ import NavUSuario from './component/navegacion';
 import { getNameSessionAlumno } from '../libs/cookieAlumos';
 import { UserProvider } from './UserContext';
 
+export const dynamic = 'force-dynamic'
+
 const sesion = process.env.SISTEMNAME;
 
 export const metadata = {
