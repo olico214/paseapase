@@ -3,7 +3,7 @@ const host = process.env.HOST
 const user = process.env.USER
 const database = process.env.DATABASE
 const password = process.env.PASSWORD
-
+console.log(host, user, dabatase, password)
 let pool;
 try {
     pool = mysql.createPool({
